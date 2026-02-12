@@ -1,41 +1,37 @@
 // AWS Amplify Configuration
-// These values will be populated by Amplify deployment
-// For local development, use environment variables
+// In production, Amplify Gen 2 auto-generates 'amplifyconfiguration.json'
+// For local development without AWS, the app runs in demo mode
 
+// Check if we're in demo mode (no Amplify configured)
+export const isDemoMode = !process.env.NEXT_PUBLIC_AMPLIFY_CONFIGURED;
+
+// This will be replaced by Amplify Gen 2 auto-generated config
 export const amplifyConfig = {
   Auth: {
     Cognito: {
-      userPoolId: process.env.NEXT_PUBLIC_COGNITO_USER_POOL_ID || '',
-      userPoolClientId: process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID || '',
+      userPoolId: process.env.NEXT_PUBLIC_USER_POOL_ID || '',
+      userPoolClientId: process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID || '',
       loginWith: {
         email: true,
       },
-      signUpVerificationMethod: 'code' as const,
-      userAttributes: {
-        email: {
-          required: true,
-        },
-      },
-      passwordFormat: {
-        minLength: 8,
-        requireLowercase: true,
-        requireUppercase: true,
-        requireNumbers: true,
-      },
+    },
+  },
+  API: {
+    GraphQL: {
+      endpoint: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT || '',
+      defaultAuthMode: 'userPool' as const,
+    },
+  },
+  Storage: {
+    S3: {
+      bucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET || '',
+      region: process.env.NEXT_PUBLIC_AWS_REGION || 'us-east-1',
     },
   },
 };
 
-export const awsConfig = {
-  region: process.env.AWS_REGION || 'us-east-1',
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID || '',
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || '',
-  },
-};
-
-// DynamoDB Table Names
+// DynamoDB Table Names (used in demo mode)
 export const TABLES = {
-  POSTS: process.env.DYNAMODB_POSTS_TABLE || 'LoneCowryPosts',
-  USERS: process.env.DYNAMODB_USERS_TABLE || 'LoneCowryUsers',
+  POSTS: 'LoneCowryPosts',
+  USERS: 'LoneCowryUsers',
 };
