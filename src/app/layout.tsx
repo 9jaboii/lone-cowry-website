@@ -10,8 +10,12 @@ export const metadata: Metadata = {
     'AI, Generative AI, Agentic AI, Defense Technology, Cybersecurity, Cloud Computing, Washington DC, Silver Spring MD',
   authors: [{ name: 'Lone Cowry Ventures Limited' }],
   icons: {
-    icon: '/assets/lone_cowry_logo.png',
-    apple: '/assets/lone_cowry_logo.png',
+    icon: [
+      { url: '/assets/icon_only.svg', type: 'image/svg+xml' },
+      { url: '/assets/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/assets/favicon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: { url: '/assets/apple-touch-icon.png', sizes: '180x180' },
   },
 };
 

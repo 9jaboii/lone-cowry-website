@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
@@ -46,8 +44,8 @@ export default function LoginPage() {
     <div className="login-container">
       <div className="login-card">
         <div className="login-header">
-          <Image
-            src="/assets/logo_nav.png"
+          <img
+            src="/assets/logo_flat_gold.svg"
             alt="Lone Cowry"
             width={48}
             height={48}

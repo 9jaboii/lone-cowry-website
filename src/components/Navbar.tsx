@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
@@ -15,8 +14,8 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <Link href="/" className="nav-logo">
-        <Image
-          src="/assets/logo_nav.png"
+        <img
+          src="/assets/icon_only.svg"
           alt="Lone Cowry"
           width={40}
           height={40}

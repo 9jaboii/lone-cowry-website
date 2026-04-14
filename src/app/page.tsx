@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -39,12 +38,11 @@ export default function HomePage() {
             </div>
           </div>
           <div className="hero-visual">
-            <Image
-              src="/assets/logo_hero.png"
+            <img
+              src="/assets/logo_primary.svg"
               alt="Lone Cowry Ventures"
               width={300}
               height={300}
-              priority
             />
           </div>
         </div>

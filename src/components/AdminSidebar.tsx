@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
 interface AdminSidebarProps {
@@ -55,8 +54,8 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
   return (
     <aside className="admin-sidebar">
       <Link href="/" className="sidebar-logo">
-        <Image
-          src="/assets/logo_nav.png"
+        <img
+          src="/assets/icon_only.svg"
           alt="Lone Cowry"
           width={36}
           height={36}
